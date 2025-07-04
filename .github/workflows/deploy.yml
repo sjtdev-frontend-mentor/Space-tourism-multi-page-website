@@ -5,9 +5,10 @@ on:
     branches: [main]  # 触发分支，按需修改
 
 permissions:
-  contents: write
+  contents: read
   pages: write
-
+  id-token: write
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
