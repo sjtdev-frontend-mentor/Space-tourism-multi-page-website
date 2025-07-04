@@ -16,36 +16,42 @@ jobs:
   # Job 1: 构建项目并上传 artifact
   build:
     runs-on: ubuntu-latest
+    # 声明使用GitHub Pages环境
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
 
       - name: Install dependencies
+        working-directory: .
         run: npm ci
 
       - name: Build project
+        working-directory: .
         run: npm run build
 
-      - name: Upload Pages Artifact
+      # 使用官方推荐部署流程
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist" # Vue 默认输出目录
+          path: ./dist
 
-  # Job 2: 部署 artifact 到 GitHub Pages
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build # 确保在 build job 成功后才运行 deploy job
-    steps:
+      # 使用官方部署（替换peaceiris方案）
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Vue 默认输出目录
+        id: deployment
+        uses: actions/deploy-pages@v4
