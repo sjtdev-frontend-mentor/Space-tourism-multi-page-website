@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]  # 触发分支，按需修改
 
+permissions:
+  contents: read
+  pages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
