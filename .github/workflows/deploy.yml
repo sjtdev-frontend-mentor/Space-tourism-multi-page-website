@@ -5,7 +5,7 @@ on:
     branches: [main]  # 触发分支，按需修改
 
 permissions:
-  contents: read
+  contents: write
   pages: write
 
 jobs:
