@@ -1,3 +1,126 @@
-@import './base.css';
+@import "./base.css";
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "./fonts.css";
 
+body {
+  background-color: black;
+}
+
+#app {
+  height: 100dvh;
+}
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-blue-900: #0b0d17;
+  --color-blue-300: #d0d6f9;
+  --spacing: 0.08px;
+  --leading-normal: 1;
+}
+
+@utility desktop-text-preset-1 {
+  @apply text-[144px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility desktop-text-preset-2 {
+  @apply text-[100px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility desktop-text-preset-3 {
+  @apply text-[56px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility desktop-text-preset-4 {
+  @apply text-[32px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility desktop-text-preset-5 {
+  @apply text-[28px] leading-normal tracking-[4px] font-[Barlow_Condensed];
+}
+
+@utility desktop-text-preset-5-bold {
+  @apply text-[28px] leading-normal tracking-[4.72px] font-[Barlow_Condensed] font-bold;
+}
+
+@utility desktop-text-preset-6 {
+  @apply text-[28px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility desktop-text-preset-7 {
+  @apply text-[14px] leading-normal tracking-[2px] font-[Barlow_Condensed];
+}
+
+@utility desktop-text-preset-8 {
+  @apply text-[16px] leading-normal tracking-[2px] font-[Barlow_Condensed];
+}
+
+@utility desktop-text-preset-8-bold {
+  @apply text-[16px] leading-normal tracking-[2px] font-[Barlow_Condensed] font-bold;
+}
+
+@utility desktop-text-preset-9 {
+  @apply text-[18px] leading-[180%] tracking-normal font-[Barlow];
+}
+
+@utility tablet-text-preset-2 {
+  @apply text-[80px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility tablet-text-preset-3 {
+  @apply text-[40px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility tablet-text-preset-4 {
+  @apply text-[24px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility tablet-text-preset-5 {
+  @apply text-[20px] leading-normal tracking-[0.15em] font-[Barlow_Condensed];
+}
+
+@utility tablet-text-preset-5-bold {
+  @apply text-[20px] leading-normal tracking-[0.15em] font-[Barlow_Condensed] font-bold;
+}
+
+@utility tablet-text-preset-9 {
+  @apply text-[16px] leading-[180%] tracking-normal font-[Barlow];
+}
+
+@utility mobile-text-preset-1 {
+  @apply text-[80px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility mobile-text-preset-2 {
+  @apply text-[56px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility mobile-text-preset-3 {
+  @apply text-[24px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility mobile-text-preset-4 {
+  @apply text-[18px] leading-normal tracking-normal font-[Bellefair];
+}
+
+@utility mobile-text-preset-6 {
+  @apply text-[16px] leading-normal tracking-[0.15em] font-[Barlow_Condensed];
+}
+
+@utility mobile-text-preset-8 {
+  @apply text-[14px] leading-normal tracking-[0.15em] font-[Barlow_Condensed];
+}
+
+@utility mobile-text-preset-9 {
+  @apply text-[15px] leading-[180%] tracking-normal font-[Barlow];
+}
+.crossfade-enter-active,
+.crossfade-leave-active {
+  transition: opacity 0.4s ease;
+  position: absolute; /* 仅在过渡期间绝对定位 */
+  width: 100%;
+}
+.crossfade-enter-from,
+.crossfade-leave-to {
+  opacity: 0;
+}
