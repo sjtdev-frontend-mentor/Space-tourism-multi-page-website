@@ -1,12 +1,11 @@
-<!-- src/App.vue -->
 <template>
   <!-- 背景层 - 独立于过渡系统 -->
   <div
     class="background-layer"
     :style="{
-      '--bg-mobile': `url(${currentBg.mobile})`,
-      '--bg-tablet': `url(${currentBg.tablet})`,
-      '--bg-desktop': `url(${currentBg.desktop})`,
+      '--bg-mobile': `url(${baseURL + currentBg.mobile})`,
+      '--bg-tablet': `url(${baseURL + currentBg.tablet})`,
+      '--bg-desktop': `url(${baseURL + currentBg.desktop})`,
     }"
   ></div>
 
@@ -41,28 +40,28 @@ watch(
   },
   { immediate: true },
 );
-
+const baseURL = import.meta.env.BASE_URL;
 // 动态背景配置
 const bgConfig = {
   "/": {
-    mobile: "/assets/home/background-home-mobile.jpg",
-    tablet: "/assets/home/background-home-tablet.jpg",
-    desktop: "/assets/home/background-home-desktop.jpg",
+    mobile: "assets/home/background-home-mobile.jpg",
+    tablet: "assets/home/background-home-tablet.jpg",
+    desktop: "assets/home/background-home-desktop.jpg",
   },
   "/destination": {
-    mobile: "/assets/destination/background-destination-mobile.jpg",
-    tablet: "/assets/destination/background-destination-tablet.jpg",
-    desktop: "/assets/destination/background-destination-desktop.jpg",
+    mobile: "assets/destination/background-destination-mobile.jpg",
+    tablet: "assets/destination/background-destination-tablet.jpg",
+    desktop: "assets/destination/background-destination-desktop.jpg",
   },
   "/crew": {
-    mobile: "/assets/crew/background-crew-mobile.jpg",
-    tablet: "/assets/crew/background-crew-tablet.jpg",
-    desktop: "/assets/crew/background-crew-desktop.jpg",
+    mobile: "assets/crew/background-crew-mobile.jpg",
+    tablet: "assets/crew/background-crew-tablet.jpg",
+    desktop: "assets/crew/background-crew-desktop.jpg",
   },
   "/technology": {
-    mobile: "/assets/technology/background-technology-mobile.jpg",
-    tablet: "/assets/technology/background-technology-tablet.jpg",
-    desktop: "/assets/technology/background-technology-desktop.jpg",
+    mobile: "assets/technology/background-technology-mobile.jpg",
+    tablet: "assets/technology/background-technology-tablet.jpg",
+    desktop: "assets/technology/background-technology-desktop.jpg",
   },
 };
 

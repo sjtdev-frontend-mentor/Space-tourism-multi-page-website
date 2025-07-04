@@ -17,7 +17,7 @@
         </nav>
         <div class="planet-info flex min-h-[216px] flex-col items-center gap-[16px] text-center md:gap-[24px] lg:items-start lg:text-left">
           <h2 class="md:tablet-text-preset-2 mobile-text-preset-2 lg:desktop-text-preset-2 text-white">{{ currentPlanet.name }}</h2>
-          <p class="description mobile-text-preset-9 md:tablet-text-preset-9 lg:desktop-text-preset-9 text-blue-300">{{ currentPlanet.description }}</p>
+          <p class="description mobile-text-preset-9 md:tablet-text-preset-9 lg:desktop-text-preset-9 text-blue-300 min-h-[165px]">{{ currentPlanet.description }}</p>
         </div>
         <div class="line h-[1px] w-full bg-white/25"></div>
         <div class="stats flex w-full flex-col gap-[24px] text-center md:flex-row lg:text-left">

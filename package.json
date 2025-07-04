@@ -27,6 +27,7 @@
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.15.34",
     "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/runtime-dom": "^3.5.17",
     "@vue/tsconfig": "^0.7.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",

@@ -8,25 +8,16 @@
       <PageTitle :index="'03'" :title="'SPACE LAUNCH 101'" />
     </template>
     <template #content-1>
-      <picture class="block w-full h-full object-cover">
-  <!-- lg 及以上屏幕使用竖版图片 -->
-  <source 
-    media="(min-width: 1024px)" 
-    :srcset="currentTechnology.imagePortrait" 
-  />
-  <!-- 默认使用横版图片 -->
-  <img 
-    class="h-full w-full object-cover" 
-    :src="currentTechnology.imageLandscape" 
-    :alt="currentTechnology.name" 
-  />
-</picture>
+      <picture class="block h-full w-full object-cover">
+        <source media="(min-width: 1024px)" :srcset="currentTechnology.imagePortrait" />
+        <img class="h-full w-full object-cover" :src="currentTechnology.imageLandscape" :alt="currentTechnology.name" />
+      </picture>
     </template>
     <template #content-2>
       <div class="flex gap-[16px] lg:flex-col lg:gap-[32px]">
         <router-link v-for="technology in technologies" :to="`/technology/${technology.id}`">
           <button
-            class="lg:desktop-text-preset-4 md:tablet-text-preset-4 mobile-text-preset-4 h-[40px] w-[40px] rounded-full border border-white/25 leading-[100%] md:h-[56px] md:w-[56px] lg:h-[80px] lg:w-[80px] hover:border-white transition-colors"
+            class="lg:desktop-text-preset-4 md:tablet-text-preset-4 mobile-text-preset-4 h-[40px] w-[40px] rounded-full border border-white/25 leading-[100%] transition-colors hover:border-white md:h-[56px] md:w-[56px] lg:h-[80px] lg:w-[80px]"
             :class="{ 'bg-white text-blue-900': technology.id === currentTechnologyId, 'text-white': technology.id !== currentTechnologyId }"
           >
             {{ technology.id }}
